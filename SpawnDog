@@ -1,0 +1,27 @@
+using System.Collections;
+using UnityEngine;
+
+public class SpawnDog : MonoBehaviour
+{
+
+    public GameObject dogPrefab;
+    public float Delay = 10.0f;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        Delay = Delay - 0.1f;
+        if (Input.GetKeyDown(KeyCode.Space) && Delay <= 0.0f )
+        {
+            Instantiate(dogPrefab, transform.position, dogPrefab.transform.rotation);
+            Delay = 10.0f;
+        }
+    }
+
+}
